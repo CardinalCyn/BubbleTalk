@@ -1,0 +1,50 @@
+#joinRoomPopup{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+#createRoomPopup{
+  position:fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+}
+.innerPopup{
+  position: relative;
+  padding: 100px;
+  width:100%;
+  max-width:640px;
+  display:flex;
+  background-color: white;
+}
+
+#closePopupBtn{
+  position: absolute;
+  top:16px;
+  right:16px;
+}
+#chatboxContainer::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+ 
+#chatboxContainer::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border-radius: 10px;
+}
+ 
+#chatboxContainer::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
