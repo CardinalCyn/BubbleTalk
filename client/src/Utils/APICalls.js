@@ -32,6 +32,25 @@ export const checkSession=()=>{
     })
 }
 
+export const getAboutMeBio=(username)=>{
+    return new Promise((resolve,reject)=>{
+        axios.get("https://192.168.1.192:5000/aboutMeBio",{params:{username:username}}).then((response)=>{
+            return resolve(response.data);
+        }).catch((err)=>{
+            return reject(err);
+        })
+    })
+}
+
+export const postAboutMeBio=(username,aboutMeBio)=>{
+    return new Promise((resolve,reject)=>{
+        axios.post("https://192.168.1.192:5000/aboutMeBioUpload",{username:username,aboutMeBio:aboutMeBio}).then((response)=>{
+            return resolve(response.data);
+        }).catch((err)=>{
+            return reject(err);
+        })
+    })
+}
 export const checkValidProfile=(username)=>{
     return new Promise((resolve,reject)=>{
         axios.post("https://192.168.1.192:5000/checkValidProfile",{username:username}).then((response)=>{
@@ -44,9 +63,10 @@ export const checkValidProfile=(username)=>{
 
 export const uploadProfilePicture=(image)=>{
     return new Promise((resolve,reject)=>{
-        axios.post("https://192.168.1.192:5000/profilePictureUpload",image,{responseType:"arraybuffer"}).then((response)=>{
+        axios.post("https://192.168.1.192:5000/profilePictureUpload",image).then((response)=>{
             return resolve(response.data);
         }).catch((err)=>{
+            console.log(err);
             return reject(err);
         })
     })
@@ -54,7 +74,7 @@ export const uploadProfilePicture=(image)=>{
 
 export const getProfilePicture=(profileName)=>{
     return new Promise((resolve,reject)=>{
-        axios.get("https://192.168.1.192:5000/profilePicture",{responseType:'arraybuffer',params:{username:profileName}}).then((response)=>{
+        axios.get("https://192.168.1.192:5000/profilePicture",{params:{username:profileName}}).then((response)=>{
             return resolve(response.data);
         }).catch((err)=>{
             return reject(err);

@@ -1,42 +1,54 @@
-#joinRoomPopup{
+#joinRoomPopup,#createRoomPopup{
   position:fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(200, 200, 200, 0.5);
   display: flex;
   justify-content:center;
   align-items:center;
 }
-#createRoomPopup{
-  position:fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content:center;
-  align-items:center;
-}
+
 .innerPopup{
   position: relative;
-  padding: 100px;
-  width:100%;
-  max-width:640px;
   display:flex;
   background-color: white;
 }
-
-#closePopupBtn{
+#roomInfo {
+  min-height: 60px;
+}
+#closePopupBtn {
   position: absolute;
-  top:16px;
-  right:16px;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#closePopupBtn::before,
+#closePopupBtn::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 24px;
+  top: 0;
+  left: 11px;
+  background-color: #046380; /* added line */
+}
+
+#closePopupBtn::before {
+  transform: rotate(45deg);
+}
+
+#closePopupBtn::after {
+  transform: rotate(-45deg);
 }
 #chatboxContainer::-webkit-scrollbar {
   width: 10px;
-  background-color: #F5F5F5;
+  background-color: #edf2f7;
 }
  
 #chatboxContainer::-webkit-scrollbar-thumb {
@@ -46,5 +58,105 @@
  
 #chatboxContainer::-webkit-scrollbar-track {
   border-radius: 10px;
-  background-color: #F5F5F5;
+  background-color: #edf2f7;
+}
+
+#chatContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top:80px;
+  height:calc(100vh - 80px);
+}
+
+#chatContainer .col-span-9 {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+#chatboxContainer {
+  height:calc(100vh - 270px);
+}
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+}
+
+.sidebar-container {
+  position: fixed;
+  height:100%;
+  margin-top:114px;
+  left: 0;
+  z-index: 9999;
+  width: 0;
+  max-height: calc(100vh - 190px);
+  overflow: hidden;
+  transition: width .3s ease-in-out;
+}
+
+.userlist-container {
+  position: fixed;
+  height:100%;
+  margin-top:194px;
+  top:0;
+  right:0;
+  z-index: 9999;
+  width: 0;
+  max-height: calc(100vh - 144px);
+  overflow: hidden;
+  transition: width .3s ease-in-out;
+}
+.roominfo-container {
+  transition: max-height 0.3s ease-in-out;
+}
+
+.userlist-sidebar {
+  overflow-y: auto;
+  max-height:100%; /* or any other value that works for you */
+}
+#errorContainer{
+  z-index: 10000;
+}
+@media screen and (min-width:768) {
+  .sidebar{
+    margin-top:30px;
+  }
+}
+.sidebar.show,.userlist-sidebar {
+  transform: translateX(0%);
+}
+
+.sidebar-container button,#roomsJoinedList li,
+#dmsJoinedList li,#DirectMessagesJoinedContainer,#roomsJoinedContainer {
+  white-space: nowrap;
+}
+
+#onlineUsers, #offlineUsers {
+  white-space: nowrap;
+}
+
+.mobileSidebar {
+  max-height: 0;
+  height:100%;
+  overflow: hidden;
+  transition: max-height .5s ease-in-out;
+}
+
+.messageItem{
+  margin-top:7.5px;
+}
+
+@media screen and (min-width:768px) {
+  .heroDiv{
+    height:50vh;
+  }
+  #bio{
+    width:75%;
+  }
+}
+
+#editingSubmission{
+  right:0;
 }
