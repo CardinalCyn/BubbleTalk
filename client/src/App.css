@@ -46,17 +46,17 @@
 #closePopupBtn::after {
   transform: rotate(-45deg);
 }
-#chatboxContainer::-webkit-scrollbar {
+#chatboxContainer::-webkit-scrollbar,.userlist-sidebar::-webkit-scrollbar,#roomsJoinedContainer::-webkit-scrollbar {
   width: 10px;
   background-color: #edf2f7;
 }
  
-#chatboxContainer::-webkit-scrollbar-thumb {
-  background-color: #000000;
+#chatboxContainer::-webkit-scrollbar-thumb,.userlist-sidebar::-webkit-scrollbar-thumb,#roomsJoinedContainer::-webkit-scrollbar-thumb {
+  background-color: #60A5FA;
   border-radius: 10px;
 }
  
-#chatboxContainer::-webkit-scrollbar-track {
+#chatboxContainer::-webkit-scrollbar-track,.userlist-sidebar::-webkit-scrollbar-track,#roomsJoinedContainer::-webkit-scrollbar-track {
   border-radius: 10px;
   background-color: #edf2f7;
 }

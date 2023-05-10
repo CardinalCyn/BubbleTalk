@@ -46,8 +46,8 @@ const store=new MySQLStore({
     }
 },db);
 app.use(session({
-    name:"chat_app_session",
-    secret:"fdkmsg",
+    name:process.env.SESSION_NAME,
+    secret:process.env.SESSION_SECRET,
     resave:false,
     saveUninitialized:false,
     store:store,

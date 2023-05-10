@@ -34,14 +34,14 @@ const Profile=({loggedIn,username}) =>{
       formData.append('profilePicture',image);
       formData.append('profileNameOfProfilePage',profileUser);
       const uploadRequest=await uploadProfilePicture(formData);
-      if(uploadRequest["status"]==="fileNotSent"||uploadRequest["status"]==="invalidPictureUploadAttempt"){
+      if(uploadRequest["status"]==="notLoggedIn"){
         toggleFileUploadError();
-      }else if(uploadRequest["status"]==="notLoggedIn"){
-        toggleFileUploadError();
+        navigate("/login");
       }
-      else{
-        toggleFileUploadError();
+      else if(uploadRequest["status"]==="success"){
         setUserProfilePicture(uploadRequest["img"]);
+      }else{
+        toggleFileUploadError();
       }
     }catch(err){
       toggleFileUploadError();
